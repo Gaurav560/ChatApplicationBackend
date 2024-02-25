@@ -11,11 +11,15 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        WebSocketMessageBrokerConfigurer.super.registerStompEndpoints(registry);
+    registry.addEndpoint("/ws").setAllowedOriginPatterns("*").withSockJS();
+
     }
 
     @Override
     public void configureMessageBroker(MessageBrokerRegistry registry) {
-        WebSocketMessageBrokerConfigurer.super.configureMessageBroker(registry);
+//this will be the prefix in which the user will be sending the data to the server.
+        registry.setApplicationDestinationPrefixes("/app");
+        registry.enableSimpleBroker("/chatroom","user");
+        registry.setUserDestinationPrefix("/user");
     }
 }
