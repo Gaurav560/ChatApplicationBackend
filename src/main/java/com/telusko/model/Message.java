@@ -1,16 +1,13 @@
 package com.telusko.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 
 public class Message {
-    public Message(String senderName, String receiverName, String message, String date, Status status) {
+    public Message(String senderName, String receiverName, String message, Status status) {
         this.senderName = senderName;
         this.receiverName = receiverName;
         this.message = message;
-        this.date = date;
+
         this.status = status;
     }
 
@@ -41,14 +38,6 @@ public class Message {
         this.message = message;
     }
 
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
     public Status getStatus() {
         return status;
     }
@@ -60,6 +49,5 @@ public class Message {
     private String senderName;
     private String receiverName;
     private String message;
-    private String date;
     private Status status;
 }

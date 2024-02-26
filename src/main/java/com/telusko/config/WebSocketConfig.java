@@ -19,7 +19,6 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     public void configureMessageBroker(MessageBrokerRegistry registry) {
 //this will be the prefix in which the user will be sending the data to the server.
         registry.setApplicationDestinationPrefixes("/app");
-        registry.enableSimpleBroker("/chatroom","user");
-        registry.setUserDestinationPrefix("/user");
+        registry.enableSimpleBroker("/chatroom");
     }
 }
